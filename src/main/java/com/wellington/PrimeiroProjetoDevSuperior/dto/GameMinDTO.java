@@ -1,6 +1,7 @@
 package com.wellington.PrimeiroProjetoDevSuperior.dto;
 
 import com.wellington.PrimeiroProjetoDevSuperior.entities.Game;
+import com.wellington.PrimeiroProjetoDevSuperior.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -21,6 +22,15 @@ public class GameMinDTO {
 		this.year = entity.getYear();
 		this.imgUrl = entity.getImgUrl();
 		this.shortDescription = entity.getShortDescription();
+	}
+	
+	public GameMinDTO(GameMinProjection projection) {
+		
+		this.id = projection.getId();
+		this.title = projection.getTitle();
+		this.year = projection.getYear();
+		this.imgUrl = projection.getimgUrl();
+		this.shortDescription = projection.getshortDescription();
 	}
 
 	public Long getId() {

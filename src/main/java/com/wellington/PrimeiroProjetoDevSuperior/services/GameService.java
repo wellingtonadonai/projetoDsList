@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.wellington.PrimeiroProjetoDevSuperior.dto.GameDTO;
 import com.wellington.PrimeiroProjetoDevSuperior.dto.GameMinDTO;
 import com.wellington.PrimeiroProjetoDevSuperior.entities.Game;
+import com.wellington.PrimeiroProjetoDevSuperior.projections.GameMinProjection;
 import com.wellington.PrimeiroProjetoDevSuperior.repositories.GameRepository;
 
 
@@ -28,6 +29,14 @@ public class GameService {
 	@Transactional(readOnly = true)
 	public List<GameMinDTO> findAll(){
 		List<Game> Result = gameRepository.findAll();
+		return Result.stream().map(x -> new GameMinDTO(x)).toList();
+		
+		
+	}
+
+	@Transactional(readOnly = true)
+	public List<GameMinDTO> findByList(Long listId){
+		List <GameMinProjection> Result = gameRepository.searchByList(listId);
 		return Result.stream().map(x -> new GameMinDTO(x)).toList();
 		
 		
