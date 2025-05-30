@@ -4,7 +4,7 @@ Este é um projeto backend desenvolvido em Java com Spring Boot como parte de um
 
 ## 🚀 Tecnologias utilizadas
 
-- Java 17
+- Java 21
 - Spring Boot
 - Spring Web
 - Spring Data JPA
